@@ -3,7 +3,7 @@ import { createCookieSessionStorage } from '@remix-run/node'
 
 const cookieSessionStorage = createCookieSessionStorage({
     cookie: {
-        name: 'student__session',
+        // name: 'student__session',
         secure: process.env.NODE_ENV === 'production',
         //一旦直で
         secrets: ['kRyDcxor1dQgCXM4b4wtCeIoRi7dveedI/ZDUOwT96A='],
