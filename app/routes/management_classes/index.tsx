@@ -91,7 +91,6 @@ export default function Index() {
                             bg='blue.50'>
                     <Link to={`/teacher_manage_seats/${cls.id}`} key={index} style={{ textDecoration: 'none' }}>
                         <Box
-                            overflow='scroll'
                             height={"100%"}
                             minWidth={"160px"}
                             bg='blue.50'
