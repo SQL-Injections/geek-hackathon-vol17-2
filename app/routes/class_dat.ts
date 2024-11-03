@@ -1,6 +1,14 @@
 import { json } from '@remix-run/node'
-import { assignSeats,idToClassSeats, pushIdAndClass, modifyClass, toggleFinished, handleFinish } from './assets/class_dat' // Assume these are your server-side utility functions
-import { requireUserSession } from './assets/student_auth.server'
+import {
+    assignSeats,
+    idToClassSeats,
+    pushIdAndClass,
+    modifyClass,
+    toggleFinished,
+    handleFinish
+} from './assets/class_dat' // Assume these are your server-side utility functions
+import { requireUserSession as requireStudentSession } from './assets/student_auth.server'
+import { requireUserSession as requireAdminSession } from './assets/admin_auth.server'
 
 // Validate class
 export async function loader({ request }: any) {
@@ -13,10 +21,6 @@ export async function loader({ request }: any) {
 
 // Add Class
 export async function action({ request }: any) {
-    const query = await requireUserSession(request)
-    if (!query) {
-        return json({ notFoundSession: false })
-    }
     const formData = await request.json()
     // console.log(formData);
     const classId = String(formData.classId)
@@ -25,6 +29,10 @@ export async function action({ request }: any) {
 
     switch (func) {
         case 'modifyClass': {
+            const query = await requireStudentSession(request)
+            if (!query) {
+                return json({ notFoundSession: false })
+            }
             const x = Number(formData.x)
             const y = Number(formData.y)
             const usrName = formData.user.displayName
@@ -32,13 +40,25 @@ export async function action({ request }: any) {
             return await modifyClass(classId, usrId, usrName, x, y)
         }
         case 'toggleFinished': {
+            const query = await requireAdminSession(request)
+            if (!query) {
+                return json({ notFoundSession: false })
+            }
             return await toggleFinished(classId)
         }
         case 'handleFinishedSeats': {
+            const query = await requireAdminSession(request)
+            if (!query) {
+                return json({ notFoundSession: false })
+            }
             const room = formData.room
             return await handleFinish(classId, room)
         }
-        case 'assignSeats' : {
+        case 'assignSeats': {
+            const query = await requireAdminSession(request)
+            if (!query) {
+                return json({ notFoundSession: false })
+            }
             return await assignSeats(classId)
         }
     }

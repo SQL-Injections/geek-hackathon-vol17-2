@@ -25,7 +25,7 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 export default function Index() {
     //clientでやってほしいので
     const [seatsAmount, setSeatsAmount] = useState(1)
-    const [className, setClassName] =  useState('')
+    const [className, setClassName] = useState('')
     const [isInputted, setIsInputted] = useState(false)
     const [height, setHeight] = useState<number>(0)
     const [width, setWidth] = useState<number>(0)
@@ -65,7 +65,7 @@ export default function Index() {
         // 一応確認
         console.log(isInputted)
         // 二つ目のコンテナを表示する
-        if(!validateInputs()){
+        if (!validateInputs()) {
             return
         }
         setIsConfirmed(true)
@@ -74,7 +74,7 @@ export default function Index() {
     function validateInputs() {
         if (height * width < seatsAmount) {
             setErrMsg(
-                `入力された${height}×${width} = ${height * width}席では要求された${seatsAmount}席を満たしません。`,
+                `入力された${height}×${width} = ${height * width}席では要求された${seatsAmount}席を満たしません。`
             )
             return false
         }
@@ -112,18 +112,18 @@ export default function Index() {
                 column: width,
                 seatAmount: seatsAmount,
                 isFinished: false,
-                seats: SeatsArray,
+                seats: SeatsArray
             }
             fetcher.submit(
                 { classId: String(id), classInfo: JSON.stringify(roomDat) },
-                { method: 'post', action: `/class_dat`, encType: 'application/json' },
+                { method: 'post', action: `/class_dat`, encType: 'application/json' }
             )
 
             const formData = new FormData()
-            formData.append("usr_id", admin.usrId)
-            formData.append("class_id", id.toString())
-            formData.append("class_name", className.toString())
-            formData.append("function", "addClass")
+            formData.append('usr_id', admin.usrId)
+            formData.append('class_id', id.toString())
+            formData.append('class_name', className.toString())
+            formData.append('function', 'addClass')
 
             fetcher.submit(formData, { method: 'post', action: '/admin_dat' })
 
@@ -135,13 +135,13 @@ export default function Index() {
                 const value = id_set.splice(rand, 1)
                 student_ids.push({ id: value.toString(), name: '' })
             }
-
+            console.log(student_ids)
             fetcher.submit(
                 {
                     classId: id.toString(),
-                    student_ids: JSON.stringify(student_ids),
+                    student_ids: JSON.stringify(student_ids)
                 },
-                { method: 'post', action: '/student_dat', encType: 'application/json' },
+                { method: 'post', action: '/student_dat', encType: 'application/json' }
             )
             // event.currentTarget.action = `/management_classes`
         } else {
@@ -150,7 +150,7 @@ export default function Index() {
             alert(
                 `選択した席数${seatsAmount}に対して現在選択中の席数は${
                     SeatsArray.flat().filter((seat) => seat).length
-                }個です。`,
+                }個です。`
             )
             // キャンセル
             event.preventDefault()
@@ -160,7 +160,7 @@ export default function Index() {
     const onClick = (rowCountIndex: number, columnIndex: number) => {
         setSeatsArray((prevSeats) => {
             const newSeats = prevSeats.map((row, rowIndex) =>
-                row.map((seat, colIndex) => (rowIndex === rowCountIndex && colIndex === columnIndex ? !seat : seat)),
+                row.map((seat, colIndex) => (rowIndex === rowCountIndex && colIndex === columnIndex ? !seat : seat))
             )
             return newSeats
         })
@@ -171,7 +171,7 @@ export default function Index() {
         column: width,
         seatAmount: seatsAmount,
         finished: false,
-        seats: SeatsArray,
+        seats: SeatsArray
     }
 
     return (
