@@ -1,0 +1,214 @@
+
+.seats_amount_container{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width:30%;
+    min-height: 300px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 70px;
+    min-width: 500px;
+}
+
+.seats_amount_text{
+    font-size: 20px;
+    width: 100%;
+    color: black;
+    top: 20%;
+}
+.seats_attribute{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.seats_amount_input{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 16px;
+    margin-top: 4px;
+    text-align: right;
+    top:50%;
+}
+
+.seats_amount_button{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    color: #000;
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    margin-top: 16px;
+    text-align: center;
+    top:70%;
+}
+
+/* 初期状態: 非表示（透明） */
+.wh_length_container {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width: 30%;
+    height: 400px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 30px;
+    opacity: 0;
+    pointer-events: none; /* クリックを無効に */
+    transition: opacity 2s ease; /* フェードインを設定 */
+    min-width: 500px;
+}
+
+/* 表示状態: 不透明 */
+.wh_length_container_visible {
+    animation: fadeIn 2s forwards;
+    pointer-events: auto; /* クリックを有効に */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.wh_length_text{
+    position: absolute;
+    font-size: 20px;
+    left: 27%;
+    transform: translate(-50%, -50%);
+    color: black;
+}
+
+.wh_length_input{
+    position: absolute;
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    font-size: 16px;
+    text-align: right;
+    left : 55%;
+    transform: translate(-50%, -50%);
+}
+
+.wh_length_button{
+    position: absolute;
+    width: 40%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    color: #000;
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    left : 55%;
+    transform: translate(-50%, -50%);
+}
+
+.wh_length_button{
+    position: absolute;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    color: #000;
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    top:75%;
+}
+
+.wh_err_msg{
+    position: absolute;
+    width: 100%;
+    height: 40px;
+    color: #000;
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: center;
+    left : 50%;
+    transform: translate(-50%, -50%);
+    top:90%;
+    color: red;
+    font-weight: bold;
+}
+
+.seats_boxes {
+    position: relative;      /* 親要素に相対的な位置に変更 */
+    max-width: 100%;
+    max-height: 95vh;
+    overflow: auto;
+    /*中央に配置*/
+}
+
+.seats{
+    position: relative;
+    max-width: 80%;
+    min-width: 0px;
+    max-height: 100vh;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    width: fit-content;      /* 内容に応じて幅を調整 */
+    left:50%;
+    transform: translate(-50%, 0%);
+}
+
+.seats_amount_text{
+    position: relative;
+    margin-top: 20px;
+}
+
+.seats_container {
+    display: inline-block;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    position: relative;
+    max-width: 80%;
+    min-width: 300px;
+    max-height: 150vh;
+    color: #000;
+    padding: 5px;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: fit-content;      /* 内容に応じて幅を調整 */
+    left:50%;
+    transform: translate(-50%, 0%);
+}
+
+.seats_submit_button{
+    position: absolute;
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    color: #000;
+    font-size: 16px;
+    text-align: center;
+    bottom: 10px;            /* 下部に配置 */
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top:20px;
+    background-color: #f5f5f5;
+}

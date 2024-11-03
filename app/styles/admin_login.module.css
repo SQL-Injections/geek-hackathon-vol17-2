@@ -1,0 +1,97 @@
+
+.container{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width:30%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 70px;
+    min-width: 500px;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.error_container{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width:40%;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 40px;
+}
+
+.userinput{
+    width: 50%;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    color: #dfdfdf;
+    padding: 5px;
+    margin: 10px 0;
+    font-size: 16px;
+    text-align: center;
+}
+.flex_btn{
+    display: flex;
+}
+.loginbutton{
+    width: 6rem;
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid #222;
+    color: #000;
+    padding: 5px;
+    margin: 20px 5px;
+    font-size: 16px;
+    text-align: center;
+    background-color: #fff;
+}
+
+.container_invisible{
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    width:30%;
+    height: 800px;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    margin-top: 70px;
+    min-width: 500px;
+    opacity: 0;
+    pointer-events: none; /* クリックを無効に */
+    transition: opacity 2s ease; /* フェードインを設定 */
+}
+
+.container_title{
+    font-size: 20px;
+    width: 100%;
+    left: 50%;
+    color: black;
+}
+/* 表示状態: 不透明 */
+.container_visible {
+    animation: fadeIn 2s forwards;
+    pointer-events: auto; /* クリックを有効に */
+}
+
+@keyframes fadeIn { 
+    from {  
+        opacity: 0;
+    }
+    to {    
+        opacity: 1;
+    }    
+}
+.error_mes{
+    color: red;
+
+}
